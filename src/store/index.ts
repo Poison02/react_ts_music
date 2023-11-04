@@ -8,17 +8,19 @@ import {
 
 import counterSlice from './modules/counter'
 import recommendSlice from '@/views/discover/c-views/recommend/store/recommend'
+import playerSlice from '@/views/player/store/player'
 
 const store = configureStore({
   reducer: {
     counter: counterSlice,
-    recommend: recommendSlice
+    recommend: recommendSlice,
+    player: playerSlice
   }
 })
 
-type GetStateFnType = typeof store.getState
-type IRootState = ReturnType<GetStateFnType>
-type DispatchType = typeof store.dispatch
+export type GetStateFnType = typeof store.getState
+export type IRootState = ReturnType<GetStateFnType>
+export type DispatchType = typeof store.dispatch
 
 // useAppSelector 的 Hook
 export const useAppSelector: TypedUseSelectorHook<IRootState> = useSelector
